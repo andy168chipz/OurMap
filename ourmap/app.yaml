@@ -11,9 +11,12 @@ handlers:
 
 - url: /css
   static_dir: templates/css
+  mime_type: text/css
 
 - url: /js
   static_dir: templates/js
+  mime_type: text/javascript
+
 - url: .*
   script: main.app
 
