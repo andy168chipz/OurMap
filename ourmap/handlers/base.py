@@ -25,7 +25,7 @@ class Handler(webapp2.RequestHandler):
 
 class MainHandler(Handler):
 	def get(self):
-		self.render("base.html")
+		self.render("map.html")
 
 class AboutHandler(Handler):
 	def get(self):
