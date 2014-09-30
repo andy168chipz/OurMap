@@ -26,6 +26,7 @@ from handlers.base import *
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
-	('/about', AboutHandler)
+	('/about', AboutHandler),
+	('/testing', testingHandler)
 
 ], debug=True)

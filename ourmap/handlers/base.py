@@ -30,3 +30,7 @@ class MainHandler(Handler):
 class AboutHandler(Handler):
 	def get(self):
 		self.render("about.html")
+
+class testingHandler(Handler):
+	def get(self):
+		self.render("index.html")
