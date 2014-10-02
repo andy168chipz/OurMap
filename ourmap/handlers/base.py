@@ -2,10 +2,10 @@ __author__ = 'Andy'
 
 #
 import webapp2
-
+from google.appengine.api import users
 import jinja2
 import os
-
+import logging
 
 template_dir = os.path.join(os.path.dirname(__file__), '../templates')  #path to template_dir, __file__(dir of cur file)
 #set up jinja_env w/ template dir
@@ -33,4 +33,11 @@ class AboutHandler(Handler):
 
 class testingHandler(Handler):
 	def get(self):
-		self.render("index.html")
+		user = users.get_current_user()
+		if user:
+			greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
+                        (user.nickname(), users.create_logout_url('/')))
+		else:
+			greeting = ('<a href="%s">Sign in or register</a>.' %
+                        users.create_login_url('/'))
+		self.response.out.write("<html><body>%s</body></html>" % greeting)
