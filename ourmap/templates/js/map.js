@@ -14,10 +14,17 @@ $(document).ready(function() {
 			 //http://stackoverflow.com/questions/9509191/google-app-engine-with-ajax-request-and-python-interactions
 			$.ajax({
 				url:"/image",
-				type:'GET',
+				type:'POST',
+				data: { 'state':data.name},
+				beforeSend: function() {
+    				$('#loading').html("<img src='/img/loading.gif' />");
+  				},
 				success: function(html){
+					//$('#loading').html("");
+					console.log(html);
+					$link = $('#links');
+					$link.show();
 
-					$('#links').show();
 				},
 				error: function(html){
 					console.log('fail');

@@ -17,6 +17,10 @@ handlers:
   static_dir: templates/js
   mime_type: text/javascript
 
+- url: /img
+  static_dir: templates/img
+  mime_type: image/gif
+
 - url: /fonts
   static_dir: templates/fonts
   mime_type: font/opentype
