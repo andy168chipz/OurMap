@@ -31,7 +31,7 @@
         <a class="prev">‹</a>
         <a class="next">›</a>
         <a class="close">×</a>
-        <a class="play-pause"></a>
+        <a class="play-pause"></a>f
         <ol class="indicator"></ol>
         <!-- The modal dialog, which will be used to wrap the lightbox content -->
         <div class="modal fade">
@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <div id="links">
+    <div id="links" style="display:none;">
         <a href="images/banana.jpg" title="Banana" data-gallery>
             <img src="images/thumbnails/banana.jpg" alt="Banana">
         </a>
@@ -78,21 +78,8 @@
   <script src="/js/color.jquery.js"></script>
     <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
     <script src="/js/bootstrap-image-gallery.min.js"></script>
+        <script src="/js/map.js"></script>
 
-    <script>
-            $(document).ready(function() {
-                 $('#map').usmap({
 
-                 stateHoverAnimation: 200,
-                 showLabels: true,
-
-                //click function
-                click: function(event, data) {
-
-                }
-                 });
-
-            });
-        </script>
 
 {% endblock %}

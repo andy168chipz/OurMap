@@ -21,12 +21,14 @@ import os
 from google.appengine.ext import db
 from google.appengine.api import memcache #if deployed google do it for you
 from handlers.base import *
+from handlers.image import *
 
 
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
 	('/about', AboutHandler),
-	('/testing', testingHandler)
+	('/testing', testingHandler),
+	('/image', imageHandler)
 
 ], debug=True)
