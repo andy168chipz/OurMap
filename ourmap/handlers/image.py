@@ -22,8 +22,10 @@ class imageHandler(Handler):
 		result={}
 		state = self.request.get('state')
 		page_wanted = self.request.get('cur_page')
-		logging.error(page_wanted=="")
-		json_image_list = query_image_list(str(state))
+		if page_wanted=="":
+			json_image_list = query_image_list(str(state))
+		else:
+			json_image_list = query_image_list(str(state),page_wanted)
 		cur_page, pages = get_pages(json_image_list)
 		url_dict = create_photo_html(json_image_list)
 		result['url_dict'] = url_dict
@@ -33,8 +35,8 @@ class imageHandler(Handler):
 		return self.write(json_data)
 
 #this function queries a API request and convert it to json format
-def query_image_list(state):
-	url = photo_search_url(API_KEY, USER_ID, state)
+def query_image_list(state, page='1'):
+	url = photo_search_url(API_KEY, USER_ID, state, page)
 	return get_json(url)
 
 #thie function takes a json format of photo info
@@ -67,6 +69,7 @@ def get_pages(json_data):
 
 def photo_search_url(api_key,user_id,tags,pages='1',format='json&nojsoncallback=1'):
 	return 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+api_key+'&user_id='+user_id+'&tags='+tags+'&page='+pages+'&format='+format
+	#return 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key='+api_key+'&user_id='+user_id+'&tags='+tags+'&format='+format
 
 def get_json(url):
 	response = urlfetch.fetch(url)

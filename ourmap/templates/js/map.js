@@ -14,11 +14,28 @@ $(document).ready(function() {
 			 statename = data.name;
 			$loading = $('#loading');
 			$link = $('#links');
-			$.ajax({
+			ajaxCall(statename,cur_page);
+
+		}
+	});
+    //for dynamic content
+	$("#pages").on('click', 'button',function() {
+         if(this.value != cur_page){
+            ajaxCall(statename,this.value);
+         }
+
+    });
+
+});
+
+function ajaxCall(state, page){
+    page = page == null ? 1: page;
+    $.ajax({
 				url:"/image",
 				type:'POST',
-				data: { 'state':statename},
+				data: { 'state':state,'cur_page':page},
 				dataType: "json",
+				cache:true,
 				beforeSend: function() {
 				    init();
     				$loading.html("<img src='/img/loading.gif' />");
@@ -27,7 +44,7 @@ $(document).ready(function() {
 				    //success with no pics
 					$loading.html("");
 					if(data.url_dict ==""){
-					    init();
+                        haveNotBeen();
 					}
 					else{
 					//success with pics
@@ -35,6 +52,7 @@ $(document).ready(function() {
 					    console.log('cur_page='+cur_page);
                         pages(data.pages_count);
                         links(data.url_dict);
+                        window.location="#links";
                     }
 				},
 				error: function(html){
@@ -43,18 +61,8 @@ $(document).ready(function() {
 					console.log('fail');
 				}
 			});
-		}
-	});
-    //for dynamic content
-	$("#pages").on('click', 'button',function() {
-         console.log(this.value);
-         if(this.value != cur_page){
+}
 
-         }
-
-    });
-
-});
 
 function pages(pages){
     var buttons = "";
@@ -78,4 +86,10 @@ function init(){
     $('#pages').html("");
     $link.hide();
     $('#pages').hide();
+}
+function haveNotBeen(){
+    $link.html("");
+    $('#pages').html("");
+    $('#pages').html('<div class="bg-warning" >'+"Looks like we haven't been there :("+'</div>');
+    $('#pages').show();
 }
