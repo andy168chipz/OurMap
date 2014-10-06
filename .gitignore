@@ -1,1 +1,6 @@
 .idea/
+ourmap/__init__.py
+ourmap/__init__.pyc
+ourmap/flickr_keys.py
+ourmap/flickr_keys.pyc
+ourmap/handlers/image.pyc

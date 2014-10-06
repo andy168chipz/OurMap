@@ -57,16 +57,15 @@
         </div>
     </div>
     <div id="loading"></div>
+    <div id="error" class="alert alert-danger" style="display:none;">There has been an error!</div>
+    <div id="pages" style="display:none;"></div>
     <div id="links" style="display:none;">
-        <a href="images/banana.jpg" title="Banana" data-gallery>
-            <img src="images/thumbnails/banana.jpg" alt="Banana">
+        <a href="https://farm3.staticflickr.com/2822/11516953415_97cd73735f.jpg" title="Blalal" data-gallery>
+            <img src="https://farm3.staticflickr.com/2822/11516953415_97cd73735f_s.jpg" alt="IMG_1342">
         </a>
-        <a href="images/apple.jpg" title="Apple" data-gallery>
-            <img src="images/thumbnails/apple.jpg" alt="Apple">
-        </a>
-        <a href="images/orange.jpg" title="Orange" data-gallery>
-            <img src="images/thumbnails/orange.jpg" alt="Orange">
-        </a>
+    </div>
+    <div id="browse_app" style="display:none;">
+        <a class="btn btn-large btn-info" href="templates/home.html">Browse</a>
     </div>
 
 {% endblock %}
@@ -76,10 +75,9 @@
   <script src="/js/raphael-min.js"></script>
   <script src="/js/jquery.usmap.js"></script>
   <script src="/js/color.jquery.js"></script>
-    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-    <script src="/js/bootstrap-image-gallery.min.js"></script>
-        <script src="/js/map.js"></script>
-
+  <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+  <script src="/js/bootstrap-image-gallery.min.js"></script>
+  <script src="/js/map.js"></script>
 
 
 {% endblock %}
