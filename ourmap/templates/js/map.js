@@ -1,4 +1,3 @@
-//http://newsignature.github.io/us-map/
 
 var cur_page;
 var statename;

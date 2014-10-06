@@ -7,7 +7,7 @@ import json
 import urllib2
 import sys
 sys.path.append('../')
-from ourmap.flickr_keys import API_KEY, API_SECRETS,USER_ID
+from flickr_keys import API_KEY, API_SECRETS,USER_ID
 from google.appengine.api import urlfetch
 
 
