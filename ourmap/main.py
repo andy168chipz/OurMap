@@ -26,9 +26,6 @@ from handlers.image import *
 
 
 app = webapp2.WSGIApplication([
-	('/', MainHandler),
-	('/about', AboutHandler),
-	('/testing', testingHandler),
-	('/image', imageHandler)
+	('/', MainHandler)
 
 ], debug=True)

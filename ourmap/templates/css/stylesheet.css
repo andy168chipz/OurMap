@@ -1,30 +1,17 @@
-
-html, body {
-height: 100%;
+body {
+  font-family: 'Arimo', sans-serif;
 }
 
-
-#wrapper {
-    min-height:100%;
-    position:relative;
+iframe {
+position: fixed;
+right: 0;
+bottom: 0;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -100;
+background: url('/assets/images/polina.jpg') no-repeat;
+background-size: cover;
 }
 
-#map{
-    width: 900px;
-    height: 650px;
-
-    margin-left:auto;
-    margin-right:auto;
-
-    
-}
-footer{
-    bottom:0;
-
-}
-
-#loading{
-	padding-left:50%;
-	padding-right:50%;
-
-}
